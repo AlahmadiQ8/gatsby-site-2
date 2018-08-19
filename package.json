@@ -27,6 +27,7 @@
     "react-dom": "^16.4.1",
     "react-emotion": "^9.2.6",
     "react-helmet": "^5.2.0",
+    "recompose": "^0.28.2",
     "styled-system": "^3.0.2",
     "typography-theme-us-web-design-standards": "^0.16.9"
   },

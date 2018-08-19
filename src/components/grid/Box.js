@@ -7,6 +7,7 @@ import {
   flex,
   order,
   alignSelf,
+  borders,
 } from 'styled-system'
 
 const Box = styled('div')`
@@ -17,6 +18,7 @@ const Box = styled('div')`
   ${flex}
   ${order}
   ${alignSelf}
+  ${borders}
 `
 
 Box.propTypes = {
