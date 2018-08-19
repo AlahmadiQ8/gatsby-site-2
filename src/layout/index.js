@@ -3,12 +3,19 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import { ThemeProvider } from 'emotion-theming'
+import { injectGlobal } from 'emotion'
 
 import theme from '../utils/theme'
 import NavBar from '../components/navBar'
 import Hr from '../components/separator'
 import Jumbotron from '../components/jumbotron'
 import './bootstrap-reboot.css'
+
+injectGlobal`
+  img {
+    margin-bottom: 0;
+  }
+`
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -47,6 +54,7 @@ const Layout = ({ children }) => (
             <NavBar />
             <Hr />
             <Jumbotron />
+            <Hr />
             <div
               style={{
                 margin: '0 auto',

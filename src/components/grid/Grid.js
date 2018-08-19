@@ -11,9 +11,15 @@ import {
   gridTemplateRows,
   gridTemplateColumns,
   alignItems,
+  style,
 } from 'styled-system'
 
 import Box from './Box'
+
+const gridTemplateAreas = style({
+  prop: 'gridTemplateAreas',
+  cssProperty: 'gridTemplateAreas',
+})
 
 const Grid = styled(Box)`
   display: grid;
@@ -28,6 +34,7 @@ const Grid = styled(Box)`
   ${gridTemplateRows};
   ${gridTemplateColumns};
   ${alignItems};
+  ${gridTemplateAreas};
 `
 
 Grid.displayName = 'Grid'

@@ -22,10 +22,11 @@ const theme = {
     SeconsecondaryVariant: colors.blue,
     lightText: colors.white,
     darkText: colors.black,
-    gradient: `linear-gradient(90deg, ${colors.cyan}, ${colors.pink})`,
+    gradient1: `linear-gradient(90deg, ${colors.cyan}, ${colors.pink})`,
+    gradient2: `linear-gradient(90deg, ${colors.pink}, ${colors.cyan})`,
   },
   colorRange,
-  breakpoints: ['540px', '720px', '960px', '1140px'],
+  breakpoints: ['540px', '720px', '960px', '1140px', '1400px'],
 }
 
 export default theme
