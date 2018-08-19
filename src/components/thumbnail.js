@@ -8,6 +8,7 @@ const RADIUS = 20
 
 const Img = withProps({
   borderRadius: RADIUS,
+  mb: 0,
 })(styled(Box.withComponent('img'))())
 
 const ImgWrapper = styled(Box)`
