@@ -5,6 +5,7 @@ import {
   minWidth,
   space,
   fontSize,
+  fontWeight,
   color,
   flex,
   order,
@@ -13,6 +14,7 @@ import {
   borderRadius,
   borderColor,
   justifySelf,
+  textAlign,
   style,
 } from 'styled-system'
 
@@ -36,6 +38,8 @@ const Box = styled('div')`
   ${maxWidth};
   ${minWidth};
   ${justifySelf};
+  ${fontWeight};
+  ${textAlign};
 `
 
 Box.propTypes = {
@@ -52,6 +56,8 @@ Box.propTypes = {
   ...maxWidth.propTypes,
   ...minWidth.propTypes,
   ...justifySelf.propTypes,
+  ...fontWeight.propTypes,
+  ...textAlign.propTypes,
 }
 
 Box.displayName = 'Box'

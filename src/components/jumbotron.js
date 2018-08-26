@@ -14,6 +14,8 @@ const gridTemplateAreas = [
    "jumborton-social  jumborton-img"`,
 ]
 
+const H1 = Box.withComponent('h1')
+
 const Jumbotron = () => (
   <Grid
     px={[3, 4, 5, 6]}
@@ -30,9 +32,15 @@ const Jumbotron = () => (
     ]}
     gridGap={['25px 25px', null, null, null, '30px 40px', '30px 100px']}
   >
-    <Box gridArea="jumborton-title" fontSize={[5, null, 6, 7]}>
+    <H1
+      mb="0"
+      textAlign={['center', null, null, null, 'start']}
+      gridArea="jumborton-title"
+      fontSize={[5, null, 6, 7]}
+      fontWeight="bold"
+    >
       Mohammad Alahmadi
-    </Box>
+    </H1>
     <Box gridArea="jumborton-desc" fontSize={[2, null, 3, 4]}>
       I'm a software engineer focusing primarly on the front end side of the
       web. I enjoy solving problems and making great web experiences for people.

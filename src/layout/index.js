@@ -8,6 +8,7 @@ import theme from '../utils/theme'
 import NavBar from '../components/navBar'
 import Hr from '../components/separator'
 import Jumbotron from '../components/jumbotron'
+import PostsSection from '../components/postsSection'
 import './bootstrap-reboot.css'
 
 const Layout = ({ children }) => (
@@ -47,6 +48,8 @@ const Layout = ({ children }) => (
             <NavBar />
             <Hr />
             <Jumbotron />
+            <Hr />
+            <PostsSection />
             <Hr />
             <div
               style={{

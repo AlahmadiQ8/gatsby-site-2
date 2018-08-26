@@ -4,6 +4,7 @@ const colors = {
   pink: '#D26AC2',
   white: 'white',
   black: '#000',
+  gray: '#adb5bd',
 }
 
 const colorRange = [
@@ -22,6 +23,7 @@ const theme = {
     SeconsecondaryVariant: colors.blue,
     lightText: colors.white,
     darkText: colors.black,
+    gray: colors.gray,
     gradient1: `linear-gradient(90deg, ${colors.cyan}, ${colors.pink})`,
     gradient2: `linear-gradient(90deg, ${colors.pink}, ${colors.cyan})`,
   },

@@ -11,6 +11,7 @@ import {
   gridTemplateRows,
   gridTemplateColumns,
   alignItems,
+  justifyContent,
   style,
 } from 'styled-system'
 
@@ -34,6 +35,7 @@ const Grid = styled(Box)`
   ${gridTemplateRows};
   ${gridTemplateColumns};
   ${alignItems};
+  ${justifyContent};
   ${gridTemplateAreas};
 `
 
