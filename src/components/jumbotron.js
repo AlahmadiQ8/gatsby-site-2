@@ -1,7 +1,7 @@
 import React from 'react'
 import Grid from './grid/Grid'
 import Box from './grid/Box'
-import SocialIcon from './socialIcon'
+import { SocialIcon } from '../components/icons'
 import Thumbnail from './thumbnail'
 
 const gridTemplateAreas = [

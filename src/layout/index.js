@@ -51,6 +51,7 @@ const Layout = ({ children }) => (
             <Hr />
             <PostsSection />
             <Hr />
+            <PostsSection />
             <div
               style={{
                 margin: '0 auto',
