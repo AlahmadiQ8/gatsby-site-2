@@ -6,8 +6,7 @@ import photo from '../images/my-photo.jpg'
 
 const RADIUS = 20
 
-const Img = withProps({
-  borderRadius: RADIUS,
+export const Img = withProps({
   mb: 0,
 })(styled(Box.withComponent('img'))())
 
@@ -23,6 +22,11 @@ export default ({ img = photo, borderWidth = [2, 3], ...props }) => (
     justifySelf="center"
     {...props}
   >
-    <Img src={img} className="img-fluid" alt="Responsive" />
+    <Img
+      src={img}
+      borderRadius={RADIUS}
+      className="img-fluid"
+      alt="Responsive"
+    />
   </ImgWrapper>
 )

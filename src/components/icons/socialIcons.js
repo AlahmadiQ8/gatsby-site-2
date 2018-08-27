@@ -10,9 +10,9 @@ const Svg = withProps({
   fill: currentColor;
   color: ${props => props.theme.colorRange[props.colorRange]};
   transition: 0.25s;
-  &:hover {
+  /* &:hover {
     transform: scale(1.25);
-  }
+  } */
   ${width};
   ${space};
   ${height};

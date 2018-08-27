@@ -9,6 +9,7 @@ import NavBar from '../components/navBar'
 import Hr from '../components/separator'
 import Jumbotron from '../components/jumbotron'
 import PostsSection from '../components/postsSection'
+import ProjectsSection from '../components/projectsSection'
 import './bootstrap-reboot.css'
 
 const Layout = ({ children }) => (
@@ -51,7 +52,7 @@ const Layout = ({ children }) => (
             <Hr />
             <PostsSection />
             <Hr />
-            <PostsSection />
+            <ProjectsSection />
             <div
               style={{
                 margin: '0 auto',

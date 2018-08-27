@@ -14,8 +14,7 @@ const PostsSection = () => (
     bg="darkBg"
     color="lightText"
     gridTemplateColumns={['100%', null, '650px']}
-    gridTemplateRows="repeat(3, 1fr)"
-    // gridTemplateRows="auto .25% .25%"
+    gridTemplateRows="repeat(auto-fit, 1fr)"
     justifyContent="center"
     gridRowGap={['60px']}
   >

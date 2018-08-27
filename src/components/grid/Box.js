@@ -3,6 +3,7 @@ import {
   width,
   maxWidth,
   minWidth,
+  maxHeight,
   space,
   fontSize,
   fontWeight,
@@ -40,6 +41,7 @@ const Box = styled('div')`
   ${justifySelf};
   ${fontWeight};
   ${textAlign};
+  ${maxHeight};
 `
 
 Box.propTypes = {
@@ -58,6 +60,7 @@ Box.propTypes = {
   ...justifySelf.propTypes,
   ...fontWeight.propTypes,
   ...textAlign.propTypes,
+  ...maxHeight.propTypes,
 }
 
 Box.displayName = 'Box'
