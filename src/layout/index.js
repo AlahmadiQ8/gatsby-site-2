@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import { injectGlobal } from 'emotion'
 import { ThemeProvider } from 'emotion-theming'
 
 import theme from '../utils/theme'
@@ -10,7 +11,19 @@ import Hr from '../components/separator'
 import Jumbotron from '../components/jumbotron'
 import PostsSection from '../components/postsSection'
 import ProjectsSection from '../components/projectsSection'
+import Footer from '../components/footer'
 import './bootstrap-reboot.css'
+
+injectGlobal`
+  a {
+    color: unset; 
+    border-bottom: 2px solid ${theme.colors.primaryVariant}
+  }
+  a:hover {
+    color: unset;
+    text-decoration: unset;
+  }
+`
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -53,6 +66,8 @@ const Layout = ({ children }) => (
             <PostsSection />
             <Hr />
             <ProjectsSection />
+            <Hr />
+            <Footer />
             <div
               style={{
                 margin: '0 auto',

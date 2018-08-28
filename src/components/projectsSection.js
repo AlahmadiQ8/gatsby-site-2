@@ -37,7 +37,7 @@ const ProjectsSection = () => (
     <Grid
       gridTemplateColumns="repeat(auto-fit, minmax(auto, 350px))"
       gridRowGap="20px"
-      gridColumnGap="20px"
+      gridColumnGap={['20px', null, '40px', null, null, '60px']}
       justifyContent="center"
     >
       <Grid
