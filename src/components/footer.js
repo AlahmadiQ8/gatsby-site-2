@@ -1,7 +1,7 @@
 import React from 'react'
 import Grid from './grid/Grid'
 import Box from './grid/Box'
-import Flex from './grid/Flex'
+import emotionImg from '../images/emotion.png'
 
 const P = Box.withComponent('p')
 
@@ -15,7 +15,7 @@ const Footer = () => (
     justifyContent="center"
     gridRowGap={['10px']}
     textAlign="center"
-    fontSize={[1, null, 2]}
+    fontSize={1}
   >
     <P mb="0" color="gray">
       © 2018 Mohammad Alahmadi. All Rights Reserved.
@@ -37,6 +37,13 @@ const Footer = () => (
       >
         Gatsby
       </a>
+    </P>
+    <P mb="0" color="gray">
+      Color Scheme inspired by{' '}
+      <a href="https://emotion.sh/" target="_blank" rel="noopener noreferrer">
+        emotion
+      </a>{' '}
+      <img src={emotionImg} alt="emotion" />
     </P>
   </Grid>
 )
