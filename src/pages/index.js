@@ -3,6 +3,10 @@ import { graphql, Link } from 'gatsby'
 import get from 'lodash/get'
 
 import Layout from '../layout'
+import Hr from '../components/separator'
+import Jumbotron from '../components/jumbotron'
+import PostsSection from '../components/postsSection'
+import ProjectsSection from '../components/projectsSection'
 
 const IndexPage = props => {
   const siteTitle = get(props, 'data.site.siteMetadata.title')
@@ -10,7 +14,12 @@ const IndexPage = props => {
 
   return (
     <Layout>
-      <h1>Hi people</h1>
+      <Jumbotron />
+      <Hr />
+      <PostsSection />
+      <Hr />
+      <ProjectsSection />
+      {/* <h1>Hi people</h1>
       <p>Welcome to your new Gatsby site.</p>
       <p>Now go build something great.</p>
       <Link to="/page-2/">Go to page 2</Link>
@@ -27,7 +36,7 @@ const IndexPage = props => {
             <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
           </div>
         )
-      })}
+      })} */}
     </Layout>
   )
 }

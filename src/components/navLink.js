@@ -4,6 +4,7 @@ const NavLink = styled('a')`
   position: relative;
   display: inline-block;
   outline: none;
+  border-bottom: none;
   text-decoration: none;
   color: ${props => props.theme.colors.lightText};
   transition: color 0.3s;
