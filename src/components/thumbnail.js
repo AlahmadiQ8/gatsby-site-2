@@ -8,10 +8,13 @@ const RADIUS = 20
 
 export const Img = withProps({
   mb: 0,
+  maxWidth: '100%',
+  height: 'auto',
 })(styled(Box.withComponent('img'))())
 
 const ImgWrapper = styled(Box)`
   background: ${props => props.theme.colors.gradient1};
+  height: auto;
 `
 
 export default ({ img = photo, borderWidth = [2, 3], ...props }) => (
@@ -22,11 +25,6 @@ export default ({ img = photo, borderWidth = [2, 3], ...props }) => (
     justifySelf="center"
     {...props}
   >
-    <Img
-      src={img}
-      borderRadius={RADIUS}
-      className="img-fluid"
-      alt="Responsive"
-    />
+    <Img src={img} borderRadius={RADIUS} alt="Responsive" />
   </ImgWrapper>
 )
