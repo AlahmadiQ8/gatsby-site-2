@@ -13,7 +13,6 @@ const Footer = () => (
     color="lightText"
     gridTemplateRows="repeat(auto-fit, 1fr)"
     justifyContent="center"
-    gridRowGap={['10px']}
     textAlign="center"
     fontSize={1}
   >

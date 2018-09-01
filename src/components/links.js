@@ -1,6 +1,8 @@
 import styled from 'react-emotion'
+import { Link } from 'gatsby'
+import theme from '../utils/theme'
 
-const NavLink = styled('a')`
+export const NavLink = styled(Link)`
   position: relative;
   display: inline-block;
   outline: none;
@@ -42,4 +44,9 @@ const NavLink = styled('a')`
   }
 `
 
-export default NavLink
+export const HeaderLink = styled(Link)`
+  border-bottom: none;
+  &:hover {
+    border-bottom: 2px solid ${theme.colors.primaryVariant};
+  }
+`

@@ -38,7 +38,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const { slug } = edge.node.fields
 
     let template
-    if (slug.includes('blog/')) {
+    if (slug.includes('posts/')) {
       template = blogTemplate
     }
 
@@ -66,7 +66,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       if (!year || !month || !day || !filename) {
         throw Error(`blog markdown filename format is incorrect: ${filePath}`)
       }
-      const slug = `/blog/${filename}`
+      const slug = `/posts/${filename}`
       const date = new Date(year, month - 1, day)
       createNodeField({
         node,

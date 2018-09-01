@@ -71,7 +71,9 @@ const Layout = ({ children }) => (
                 <NavBar />
                 <Hr />
               </Header>
-              <Box gridArea="g-main">{children}</Box>
+              <Box bg="darkBg" gridArea="g-main">
+                {children}
+              </Box>
               <Foot gridArea="g-footer">
                 <Hr />
                 <Footer />

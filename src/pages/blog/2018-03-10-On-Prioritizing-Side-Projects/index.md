@@ -2,7 +2,6 @@
 title: On Prioritizing Side Projects
 date: 2018-03-10T13:44:26-08:00
 description: In this post, I’ll focus on what I’ve learned about how to prioritize which projects to work on.
-draft: false
 ---
 
 {{% figure src="confused.png" atl="Confused Kawaii" caption="I just wanted an exuse to put my Apple pencil in use 😁" %}}
