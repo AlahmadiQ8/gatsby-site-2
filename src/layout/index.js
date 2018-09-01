@@ -5,20 +5,23 @@ import { StaticQuery, graphql } from 'gatsby'
 import { injectGlobal } from 'emotion'
 import { ThemeProvider } from 'emotion-theming'
 
+import reboot from './reboot'
 import theme from '../utils/theme'
 import Box from '../components/grid/Box'
 import Grid from '../components/grid/Grid'
 import NavBar from '../components/navBar'
 import Hr from '../components/separator'
 import Footer from '../components/footer'
-import './bootstrap-reboot.css'
 
 injectGlobal`
+  ${reboot}
   a {
+    text-decoration: none;
     color: unset; 
-    border-bottom: 2px solid ${theme.colors.primaryVariant}
+    border-bottom: 2px solid ${theme.colors.primaryVariant};
   }
   a:hover {
+    text-decoration: none;
     color: unset;
     text-decoration: unset;
   }

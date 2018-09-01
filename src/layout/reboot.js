@@ -6,6 +6,7 @@
  * Forked from Normalize.css, licensed MIT (https://github.com/necolas/normalize.css/blob/master/LICENSE.md)
  */
 
+export default `
  *,
  *::before,
  *::after {
@@ -323,4 +324,4 @@
  [hidden] {
    display: none !important;
  }
- /*# sourceMappingURL=bootstrap-reboot.css.map */
+`
