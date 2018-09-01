@@ -50,3 +50,12 @@ export const HeaderLink = styled(Link)`
     border-bottom: 2px solid ${theme.colors.primaryVariant};
   }
 `
+
+export const SocialLink = styled('a')`
+  border-bottom: none;
+  transition: transform 0.5s;
+  transform-origin: center;
+  &:hover {
+    transform: scale(1.2);
+  }
+`
