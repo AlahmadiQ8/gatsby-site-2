@@ -49,7 +49,7 @@ const PostsSection = ({ posts, containerStyles }) => (
           </Box>
           <Box color="gray" fontSize={[0, null, 1, 2]}>
             <Clock mr="2" />
-            <span>{post.timeToRead}</span>
+            <span>{post.timeToRead} min read</span>
           </Box>
         </Flex>
       </Grid>

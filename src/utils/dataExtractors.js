@@ -22,3 +22,14 @@ export const getShortInfo = props => {
   if (!ymlData || ymlData.length === 0) return {}
   return get(ymlData.find(({ node }) => node.shortIntro), 'node.shortIntro')
 }
+
+export const getImageFluid = props => {
+  const images = get(props, 'allImageSharp.edges')
+  if (!images || images.length === 0) return []
+  return get(images[0], 'node.fluid')
+}
+export const getImageFixed = props => {
+  const images = get(props, 'allImageSharp.edges')
+  if (!images || images.length === 0) return []
+  return get(images[0], 'node.fixed')
+}
