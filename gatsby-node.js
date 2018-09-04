@@ -3,12 +3,23 @@ const { createFilePath } = require('gatsby-source-filesystem')
 
 const BLOG_POST_FILENAME_REGEX = /([0-9]+)\-([0-9]+)\-([0-9]+)\-(.+)/
 
+let images
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const allMarkdown = await graphql(
     `
       {
+        allImageSharp {
+          edges {
+            node {
+              fixed {
+                originalName
+              }
+            }
+          }
+        }
         allMarkdownRemark(
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
@@ -27,12 +38,17 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     `
   )
+
   const blogTemplate = path.resolve(__dirname, './src/templates/post.js')
 
   if (allMarkdown.errors) {
     console.error(allMarkdown.errors)
     throw Error(allMarkdown.errors)
   }
+
+  images = allMarkdown.data.allImageSharp.edges.map(({ node }) => {
+    return node.fixed.originalName
+  })
 
   allMarkdown.data.allMarkdownRemark.edges.forEach(edge => {
     const { slug } = edge.node.fields
@@ -41,15 +57,22 @@ exports.createPages = async ({ graphql, actions }) => {
     if (slug.includes('posts/')) {
       template = blogTemplate
     }
-
     createPage({
       path: slug,
       component: template,
       context: {
         slug,
+        images,
       },
     })
   })
+}
+
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage, deletePage } = actions
+  const oldPage = Object.assign({}, page)
+  deletePage(oldPage)
+  createPage({ ...page, context: { ...page.context, images } })
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {

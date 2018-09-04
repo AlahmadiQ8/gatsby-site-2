@@ -30,7 +30,7 @@ injectGlobal`
 const Header = Box.withComponent('header')
 const Foot = Box.withComponent('footer')
 
-const Layout = ({ children }) => (
+const Layout = ({ children, pageData }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -79,7 +79,7 @@ const Layout = ({ children }) => (
               </Box>
               <Foot gridArea="g-footer">
                 <Hr />
-                <Footer />
+                <Footer pageData={pageData} />
               </Foot>
             </Grid>
           </>

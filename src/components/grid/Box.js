@@ -18,6 +18,8 @@ import {
   justifySelf,
   textAlign,
   style,
+  display,
+  verticalAlign,
 } from 'styled-system'
 
 const gridArea = style({
@@ -44,6 +46,8 @@ const Box = styled('div')`
   ${textAlign};
   ${maxHeight};
   ${height};
+  ${display};
+  ${verticalAlign};
 `
 
 Box.propTypes = {
@@ -64,6 +68,8 @@ Box.propTypes = {
   ...textAlign.propTypes,
   ...maxHeight.propTypes,
   ...height.propTypes,
+  ...display.propTypes,
+  ...verticalAlign.propTypes,
 }
 
 Box.displayName = 'Box'

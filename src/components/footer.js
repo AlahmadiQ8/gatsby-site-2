@@ -1,11 +1,13 @@
 import React from 'react'
+import { css } from 'emotion'
 import Grid from './grid/Grid'
 import Box from './grid/Box'
-import emotionImg from '../images/emotion.png'
+import Img from './img'
+import { getImageFluid } from '../utils/dataExtractors'
 
 const P = Box.withComponent('p')
 
-const Footer = () => (
+const Footer = ({ pageData }) => (
   <Grid
     px={[3, 4, 5, 6]}
     py={[4, null, null, 5]}
@@ -42,7 +44,14 @@ const Footer = () => (
       <a href="https://emotion.sh/" target="_blank" rel="noopener noreferrer">
         emotion
       </a>{' '}
-      <img src={emotionImg} alt="emotion" />
+      <Img
+        fluid={getImageFluid(pageData, 'emotion.png')}
+        alt="emotion"
+        style={{ display: 'inline-block', width: '25px' }}
+        outerWrapperClassName={css`
+          display: inline;
+        `}
+      />
     </P>
   </Grid>
 )

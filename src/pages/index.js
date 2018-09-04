@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import get from 'lodash/get'
 
 import { getPosts } from '../utils/dataExtractors'
@@ -12,14 +12,14 @@ import ProjectsSection from '../components/projectsSection'
 const IndexPage = props => {
   const siteTitle = get(props, 'data.site.siteMetadata.title')
   const posts = getPosts(props)
-
+  console.log(props.data)
   return (
-    <Layout>
-      <Jumbotron />
+    <Layout pageData={props.data}>
+      <Jumbotron pageData={props.data} />
       <Hr />
       <PostsSection posts={posts} />
       <Hr />
-      <ProjectsSection />
+      <ProjectsSection pageData={props.data} />
       {/* <h1>Hi people</h1>
       <p>Welcome to your new Gatsby site.</p>
       <p>Now go build something great.</p>
@@ -45,11 +45,14 @@ const IndexPage = props => {
 export default IndexPage
 
 export const pageQuery = graphql`
-  query IndexQuery {
+  query IndexQuery($images: [String]!) {
     site {
       siteMetadata {
         title
       }
+    }
+    allImageSharp(filter: { fixed: { originalName: { in: $images } } }) {
+      ...AllImages
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {

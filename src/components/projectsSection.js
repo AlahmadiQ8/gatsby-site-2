@@ -2,15 +2,15 @@ import React from 'react'
 import Grid from './grid/Grid'
 import Box from './grid/Box'
 import Flex from './grid/Flex'
+import Img from './img'
 import { Post, SocialIcon } from './icons'
-import { Img } from './thumbnail'
-import photo from '../images/my-photo.jpg'
+import { getImageFluid } from '../utils/dataExtractors'
 
 const H1 = Box.withComponent('h1')
 const H2 = Box.withComponent('h2')
 const P = Box.withComponent('p')
 
-const ProjectsSection = () => (
+const ProjectsSection = ({ pageData }) => (
   <Grid
     px={[3, 4, 5, 6]}
     py={[4, 4, 5, 6]}
@@ -35,7 +35,7 @@ const ProjectsSection = () => (
       Projects
     </H1>
     <Grid
-      gridTemplateColumns="repeat(auto-fit, minmax(auto, 350px))"
+      gridTemplateColumns="repeat(auto-fit, minmax(auto, 300px))"
       gridRowGap="20px"
       gridColumnGap={['20px', null, '40px', null, null, '60px']}
       justifyContent="center"
@@ -50,7 +50,10 @@ const ProjectsSection = () => (
         px="2"
         py="2"
       >
-        <Img src={photo} borderRadius="10" />
+        <Img
+          fluid={getImageFluid(pageData, 'my-photo.jpg')}
+          style={{ borderRadius: 7 }}
+        />
         <H2 fontSize={[2, null, 3, 4]} mb="0" justifySelf="center">
           Connect-4 Game
         </H2>
