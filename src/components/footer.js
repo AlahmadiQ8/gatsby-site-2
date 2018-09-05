@@ -45,11 +45,15 @@ const Footer = ({ pageData }) => (
         emotion
       </a>{' '}
       <Img
+        Tag="span"
         fluid={getImageFluid(pageData, 'emotion.png')}
         alt="emotion"
         style={{ display: 'inline-block', width: '25px' }}
         outerWrapperClassName={css`
           display: inline;
+          & > span > span {
+            display: block;
+          }
         `}
       />
     </P>

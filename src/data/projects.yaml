@@ -1,0 +1,13 @@
+- name: StackOverflow Starred Veiwer
+  description: a Chrome Extension to easily browse starred StackOverflow questrions
+  image: stackoverflow-starred.png
+  github: https://github.com/AlahmadiQ8/StackFave
+  post: https://dev.to/alahmadiq8/my-first-chrome-extension-stackoverflow-starred-viewer-1nm6
+- name: Multi Line Todos for Wunderlist
+  description: A simple api consumer for Wunderlist to parse a bulk of text data into a list of tasks.
+  image: wunderlist.png
+  github: https://github.com/AlahmadiQ8/wunderlist-utilities
+- name: Connect 4 Game
+  description: An Implementation of Connect 4 Game with Reactjs and Redux
+  image: connect-4.png
+  github: https://github.com/AlahmadiQ8/connect-4

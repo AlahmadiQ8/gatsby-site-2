@@ -37,3 +37,9 @@ export const getImageFixed = (data, str) => {
   })
   return node.node.fixed
 }
+
+export const getProjects = data => {
+  const ymlData = get(data, 'allProjectsYaml.edges') || []
+  const projects = ymlData.map(val => val.node)
+  return projects
+}

@@ -19,11 +19,11 @@ const PostsSection = ({ posts, containerStyles }) => (
     gridTemplateColumns={['100%', null, '650px']}
     gridTemplateRows="repeat(auto-fit, 1fr)"
     justifyContent="center"
-    gridRowGap={['60px']}
+    gridRowGap={['15px', '20px', null, '30px']}
     {...containerStyles}
   >
     <H1
-      mb={['0', null, null, '30px']}
+      mb={['0', null, null, '40px']}
       pb={[3]}
       fontSize={[5, null, 6, 7]}
       textAlign="center"
@@ -39,7 +39,7 @@ const PostsSection = ({ posts, containerStyles }) => (
         gridTemplateRows="1fr 1fr"
         gridRowGap="20px"
       >
-        <H2 fontSize={[3, null, 4, 5]} mb="0">
+        <H2 fontSize={[3, null, 4, 5]} my="0">
           <HeaderLink to={post.slug}>{post.title}</HeaderLink>
         </H2>
         <Flex>

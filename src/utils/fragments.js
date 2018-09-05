@@ -33,3 +33,18 @@ export const imagesFragment = graphql`
     }
   }
 `
+
+export const projectsQuery = graphql`
+  fragment AllProjects on ProjectsYamlConnection {
+    edges {
+      node {
+        id
+        name
+        description
+        image
+        github
+        post
+      }
+    }
+  }
+`

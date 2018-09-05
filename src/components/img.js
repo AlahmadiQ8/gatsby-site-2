@@ -1,6 +1,5 @@
 import React from 'react'
 import Img from 'gatsby-image'
-import Box from './grid/Box'
 
 export default ({ fluid, alt, style, ...props }) => {
   const imgstyle = {
