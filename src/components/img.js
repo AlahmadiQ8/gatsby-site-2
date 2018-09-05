@@ -6,5 +6,8 @@ export default ({ fluid, alt, style, ...props }) => {
     verticalAlign: 'middle',
     ...style,
   }
-  return <Img fluid={fluid} alt={alt} style={imgstyle} {...props} />
+  // NOTE: this is required for html build step
+  return fluid ? (
+    <Img fluid={fluid} alt={alt} style={imgstyle} {...props} />
+  ) : null
 }

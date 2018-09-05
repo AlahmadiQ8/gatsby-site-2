@@ -1,6 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import Img from './img'
 import Grid from './grid/Grid'
 import Box from './grid/Box'
 import Flex from './grid/Flex'

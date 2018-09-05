@@ -25,6 +25,7 @@ export const getShortInfo = props => {
 
 export const getImageFluid = (data, str) => {
   const images = get(data, 'allImageSharp.edges')
+  if (!images) return undefined
   const node = images.find(val => {
     return get(val, 'node.fixed.originalName') === str
   })
@@ -32,6 +33,7 @@ export const getImageFluid = (data, str) => {
 }
 export const getImageFixed = (data, str) => {
   const images = get(data, 'allImageSharp.edges')
+  if (!images) return undefined
   const node = images.find(val => {
     return get(val, 'node.fixed.originalName') === str
   })

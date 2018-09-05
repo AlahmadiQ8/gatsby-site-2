@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'react-emotion'
-import Img from 'gatsby-image'
+import Img from './img'
 import { getImageFluid } from '../utils/dataExtractors'
 import Box from './grid/Box'
 
