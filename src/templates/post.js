@@ -2,7 +2,11 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 import get from 'just-safe-get'
+import styles from '../utils/contentStyles'
+import Box from '../components/grid/Box'
 import Layout from '../layout'
+
+const H1 = Box.withComponent('h1')
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -13,16 +17,31 @@ class BlogPostTemplate extends React.Component {
     return (
       <Layout>
         <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
-        <h1>{post.frontmatter.title}</h1>
-        <p
-          style={{
-            display: 'block',
-          }}
-        >
-          {post.frontmatter.date}
-        </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-
+        <Box my="0" mx="0" bg="white">
+          <Box
+            my="0"
+            bg="white"
+            maxWidth={[740]}
+            mx="auto"
+            px="3"
+            py={[3, 4, null, 5]}
+          >
+            <H1 fontSize={[5, 5, null, 6]} mt="0">
+              {post.frontmatter.title}
+            </H1>
+            {/* <p
+              style={{
+                display: 'block',
+              }}
+            >
+              {post.frontmatter.date}
+            </p> */}
+            <div
+              className={styles}
+              dangerouslySetInnerHTML={{ __html: post.html }}
+            />
+          </Box>
+        </Box>
         <ul
           style={{
             display: 'flex',

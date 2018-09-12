@@ -23,6 +23,7 @@ const PostsSection = ({ posts, containerStyles }) => (
     {...containerStyles}
   >
     <H1
+      mt="0"
       mb={['0', null, null, '40px']}
       pb={[3]}
       fontSize={[5, null, 6, 7]}

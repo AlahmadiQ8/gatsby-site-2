@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import theme from '../utils/theme'
 
 export const NavLink = styled(Link)`
+  font-weight: normal;
   position: relative;
   display: inline-block;
   outline: none;
@@ -46,6 +47,7 @@ export const NavLink = styled(Link)`
 
 export const HeaderLink = styled(Link)`
   border-bottom: none;
+  font-weight: normal;
   &:hover {
     border-bottom: 2px solid ${theme.colors.primaryVariant};
   }
@@ -55,6 +57,7 @@ export const SocialLink = styled('a')`
   border-bottom: none;
   transition: transform 0.5s;
   transform-origin: center;
+  font-weight: normal;
   &:hover {
     transform: scale(1.2);
   }

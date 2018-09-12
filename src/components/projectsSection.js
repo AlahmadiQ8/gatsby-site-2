@@ -42,6 +42,7 @@ const ProjectsSection = ({ pageData }) => (
           <H1
             justifySelf="center"
             width={['100%', null, null, '650px']}
+            mt="0"
             mb={['0', null, null, '30px']}
             pb={[3]}
             fontSize={[5, null, 6, 7]}

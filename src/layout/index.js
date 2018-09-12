@@ -18,7 +18,8 @@ injectGlobal`
   a {
     text-decoration: none;
     color: unset; 
-    border-bottom: 2px solid ${theme.colors.primaryVariant};
+    border-bottom: 3px solid ${theme.colors.primaryVariant};
+    font-weight: 700;
   }
   a:hover {
     text-decoration: none;
