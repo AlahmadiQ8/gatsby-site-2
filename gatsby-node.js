@@ -50,8 +50,11 @@ exports.createPages = async ({ graphql, actions }) => {
     return node.fixed.originalName
   })
 
-  allMarkdown.data.allMarkdownRemark.edges.forEach(edge => {
+  const posts = allMarkdown.data.allMarkdownRemark.edges
+  posts.forEach((edge, index) => {
     const { slug } = edge.node.fields
+    const previous = index === posts.length - 1 ? null : posts[index + 1].node
+    const next = index === 0 ? null : posts[index - 1].node
 
     let template
     if (slug.includes('posts/')) {
@@ -63,6 +66,8 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         slug,
         images,
+        previous,
+        next,
       },
     })
   })
