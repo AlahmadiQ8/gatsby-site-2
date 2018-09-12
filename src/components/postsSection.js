@@ -6,6 +6,7 @@ import Grid from './grid/Grid'
 import Box from './grid/Box'
 import Flex from './grid/Flex'
 import { Calendar, Clock } from './icons'
+import PostMeta from './postMeta'
 
 const H1 = Box.withComponent('h1')
 const H2 = Box.withComponent('h2')
@@ -43,16 +44,7 @@ const PostsSection = ({ posts, containerStyles }) => (
         <H2 fontSize={[3, null, 4, 5]} my="0">
           <HeaderLink to={post.slug}>{post.title}</HeaderLink>
         </H2>
-        <Flex>
-          <Box color="gray" fontSize={[0, null, 1, 2]} mr={4}>
-            <Calendar mr="2" />
-            <span>{format(new Date(post.date), 'ddd, MMM D, YYYY')}</span>
-          </Box>
-          <Box color="gray" fontSize={[0, null, 1, 2]}>
-            <Clock mr="2" />
-            <span>{post.timeToRead} min read</span>
-          </Box>
-        </Flex>
+        <PostMeta date={post.date} timeToRead={post.timeToRead} />
       </Grid>
     ))}
   </Grid>

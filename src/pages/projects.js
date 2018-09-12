@@ -1,14 +1,26 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import Layout from '../layout'
+import ProjectSection from '../components/projectsSection'
 
-const SecondPage = () => (
-  <Layout>
-    <h1>PROJECTS</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
-  </Layout>
-)
+const Projects = props => {
+  return (
+    <Layout>
+      <ProjectSection
+        pageData={props.data}
+        containerStyles={{ py: [3, 4], gridRowGap: ['30px'] }}
+      />
+    </Layout>
+  )
+}
 
-export default SecondPage
+export default Projects
+
+export const pageQuery = graphql`
+  query ProjectsQuery($images: [String]!) {
+    allImageSharp(filter: { fixed: { originalName: { in: $images } } }) {
+      ...AllImages
+    }
+  }
+`

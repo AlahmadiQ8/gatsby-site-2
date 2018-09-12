@@ -11,7 +11,7 @@ const H1 = Box.withComponent('h1')
 const H2 = Box.withComponent('h2')
 const P = Box.withComponent('p')
 
-const ProjectsSection = ({ pageData }) => (
+const ProjectsSection = ({ pageData, containerStyles }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -38,6 +38,7 @@ const ProjectsSection = ({ pageData }) => (
           justifyContent="center"
           gridRowGap={['60px']}
           flex="0 1 auto"
+          {...containerStyles}
         >
           <H1
             justifySelf="center"

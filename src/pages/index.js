@@ -54,7 +54,10 @@ export const pageQuery = graphql`
     allImageSharp(filter: { fixed: { originalName: { in: $images } } }) {
       ...AllImages
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fields: { slug: { regex: "/posts/" } } }
+    ) {
       edges {
         node {
           id

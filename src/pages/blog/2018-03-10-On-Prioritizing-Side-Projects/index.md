@@ -4,7 +4,7 @@ date: 2018-03-10T13:44:26-08:00
 description: In this post, I’ll focus on what I’ve learned about how to prioritize which projects to work on.
 ---
 
-{{% figure src="confused.png" atl="Confused Kawaii" caption="I just wanted an exuse to put my Apple pencil in use 😁" %}}
+![Confused Kawaii](confused.png)
 
 There are many things I want to do in my free time. These can be anything from programming projects, exploring new hobbies, or just reading a book. However, whenever I attempt to get my hands dirty on a project, I often end up not completing it. I struggle with wasting too much time on TV, social media, or just hanging out. 
 

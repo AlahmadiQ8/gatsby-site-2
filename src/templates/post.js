@@ -5,6 +5,7 @@ import get from 'just-safe-get'
 import styles from '../utils/contentStyles'
 import Box from '../components/grid/Box'
 import Layout from '../layout'
+import PostMeta from '../components/postMeta'
 
 const H1 = Box.withComponent('h1')
 
@@ -12,36 +13,43 @@ class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
-    const { previous, next } = this.props.pageContext
+    const { previous, next, type } = this.props.pageContext
 
     return (
-      <Layout>
+      <Layout bg="white">
         <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
-        <Box my="0" mx="0" bg="white">
-          <Box
-            my="0"
-            bg="white"
-            maxWidth={[740]}
-            mx="auto"
-            px="3"
-            py={[3, 4, null, 5]}
-          >
-            <H1 fontSize={[5, 5, null, 6]} mt="0">
-              {post.frontmatter.title}
-            </H1>
-            {/* <p
+        <Box
+          my="0"
+          bg="white"
+          maxWidth={[740]}
+          mx="auto"
+          px="3"
+          pt={[4, 4, null, 4]}
+          pb={[3, 4, null, 5]}
+        >
+          {type === 'post' && (
+            <PostMeta
+              date={post.frontmatter.date}
+              timeToRead={post.timeToRead}
+              pb={[3, 3, null, 4]}
+            />
+          )}
+          <H1 fontSize={[5, 5, null, 6]} mt="0" mb={['30px', '38px']}>
+            {post.frontmatter.title}
+          </H1>
+          {/* <p
               style={{
                 display: 'block',
               }}
             >
               {post.frontmatter.date}
             </p> */}
-            <div
-              className={styles}
-              dangerouslySetInnerHTML={{ __html: post.html }}
-            />
-          </Box>
+          <div
+            className={styles}
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
         </Box>
+
         <ul
           style={{
             display: 'flex',
@@ -84,6 +92,7 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html
+      timeToRead
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")

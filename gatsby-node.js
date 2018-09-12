@@ -53,13 +53,20 @@ exports.createPages = async ({ graphql, actions }) => {
   const posts = allMarkdown.data.allMarkdownRemark.edges
   posts.forEach((edge, index) => {
     const { slug } = edge.node.fields
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node
-    const next = index === 0 ? null : posts[index - 1].node
+    const previous =
+      index === posts.length - 1 ||
+      !posts[index + 1].node.fields.slug.includes('posts')
+        ? null
+        : posts[index + 1].node
+    const next =
+      index === 0 || !posts[index - 1].node.fields.slug.includes('posts')
+        ? null
+        : posts[index - 1].node
 
     let template
-    if (slug.includes('posts/')) {
-      template = blogTemplate
-    }
+    // if (slug.includes('posts/')) {
+    template = blogTemplate // for now, use template for all md docs
+    // }
     createPage({
       path: slug,
       component: template,
@@ -68,6 +75,7 @@ exports.createPages = async ({ graphql, actions }) => {
         images,
         previous,
         next,
+        type: slug.includes('posts/') ? 'post' : null,
       },
     })
   })
@@ -101,6 +109,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         name: 'date',
         value: date.toJSON(),
       })
+      createNodeField({
+        node,
+        name: 'slug',
+        value: slug,
+      })
+    } else {
+      const slug = `/${filePath}`
       createNodeField({
         node,
         name: 'slug',

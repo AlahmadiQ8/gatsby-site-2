@@ -19,19 +19,21 @@ injectGlobal`
     text-decoration: none;
     color: unset; 
     border-bottom: 3px solid ${theme.colors.primaryVariant};
-    font-weight: 700;
   }
   a:hover {
     text-decoration: none;
     color: unset;
     text-decoration: unset;
   }
+  .gatsby-resp-image-link {
+    border-bottom: none;
+  }
 `
 
 const Header = Box.withComponent('header')
 const Foot = Box.withComponent('footer')
 
-const Layout = ({ children, pageData }) => (
+const Layout = ({ children, pageData, bg }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -75,7 +77,7 @@ const Layout = ({ children, pageData }) => (
                 <NavBar />
                 <Hr />
               </Header>
-              <Box bg="darkBg" gridArea="g-main">
+              <Box bg={bg} gridArea="g-main">
                 {children}
               </Box>
               <Foot gridArea="g-footer">
@@ -92,6 +94,10 @@ const Layout = ({ children, pageData }) => (
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+}
+
+Layout.defaultProps = {
+  bg: 'darkBg',
 }
 
 export default Layout
