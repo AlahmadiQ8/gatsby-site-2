@@ -16,7 +16,7 @@ class BlogPostTemplate extends React.Component {
     const { previous, next, type } = this.props.pageContext
 
     return (
-      <Layout bg="white">
+      <Layout bg="white" pageData={this.props.data}>
         <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
         <Box
           my="0"
@@ -82,12 +82,15 @@ class BlogPostTemplate extends React.Component {
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query BlogPostBySlug($slug: String!, $images: [String]!) {
     site {
       siteMetadata {
         title
         author
       }
+    }
+    allImageSharp(filter: { fixed: { originalName: { in: $images } } }) {
+      ...AllImages
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id

@@ -9,7 +9,7 @@ const Posts = props => {
   const posts = getPosts(props)
 
   return (
-    <Layout>
+    <Layout pageData={props.data}>
       <PostsSection
         posts={posts}
         containerStyles={{ py: [3, 4], gridRowGap: ['30px'] }}
@@ -21,7 +21,10 @@ const Posts = props => {
 export default Posts
 
 export const pageQuery = graphql`
-  query {
+  query PostsQuery($images: [String]!) {
+    allImageSharp(filter: { fixed: { originalName: { in: $images } } }) {
+      ...AllImages
+    }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { fields: { slug: { regex: "/posts/" } } }

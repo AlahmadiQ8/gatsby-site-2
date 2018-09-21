@@ -6,7 +6,7 @@ import ProjectSection from '../components/projectsSection'
 
 const Projects = props => {
   return (
-    <Layout>
+    <Layout pageData={props.data}>
       <ProjectSection
         pageData={props.data}
         containerStyles={{ py: [3, 4], gridRowGap: ['30px'] }}
