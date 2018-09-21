@@ -77,7 +77,7 @@ const Jumbotron = ({ pageData }) => (
           </Box>
           <Grid
             gridArea="jumborton-social"
-            gridTemplateColumns="repeat(6, 1fr)"
+            gridTemplateColumns="repeat(5, 1fr)"
           >
             {social.map(({ name, link }, index) => (
               <SocialLink href={link} target="_blank" rel="noopener noreferrer">
