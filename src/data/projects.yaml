@@ -4,9 +4,13 @@
   github: https://github.com/AlahmadiQ8/StackFave
   post: https://dev.to/alahmadiq8/my-first-chrome-extension-stackoverflow-starred-viewer-1nm6
 - name: Multi Line Todos for Wunderlist
-  description: A simple api consumer for Wunderlist to parse a bulk of text data into a list of tasks.
+  description: A simple api consumer for Wunderlist to parse a bulk of text data into a list of tasks
   image: wunderlist.png
   github: https://github.com/AlahmadiQ8/wunderlist-utilities
+- name: S3 Routing Rules Builder
+  description: build S3 conditional routing rules using a simple space separated syntax
+  image: s3-routing.png
+  github: https://github.com/AlahmadiQ8/S3-Routing-Rules-Builder
 - name: Connect 4 Game
   description: An Implementation of Connect 4 Game with Reactjs and Redux
   image: connect-4.png
