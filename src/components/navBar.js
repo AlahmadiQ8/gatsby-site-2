@@ -2,7 +2,7 @@ import React from 'react'
 
 import Box from './grid/Box'
 import Flex from './grid/Flex'
-import { NavLink } from './links'
+import { NavLink, NavLinkExt } from './links'
 
 const NavBar = () => (
   <Flex flexDirection={['column', 'row']}>
@@ -34,8 +34,13 @@ const NavBar = () => (
       <Box ml={[0, 5]} mb={[3, 0]} flex="0 1 auto">
         <NavLink to="posts">Posts</NavLink>
       </Box>
-      <Box ml={[0, 5]} flex="0 1 auto">
+      <Box ml={[0, 5]} mb={[3, 0]} flex="0 1 auto">
         <NavLink to="projects">Projects</NavLink>
+      </Box>
+      <Box ml={[0, 5]} flex="0 1 auto">
+        <NavLinkExt to="https://docs.google.com/document/d/1t3uo04DO-ONXoMgyKj4KY1oqbCr7pT8sItwI-phhGro/edit?usp=sharing">
+          Resume
+        </NavLinkExt>
       </Box>
     </Flex>
   </Flex>
