@@ -7,6 +7,7 @@ module.exports = {
       'Software developer, front-end web developer, Javascript, HTML5, CSS3, Kuwait',
   },
   plugins: [
+    'gatsby-plugin-twitter',
     {
       resolve: 'gatsby-plugin-emotion',
     },

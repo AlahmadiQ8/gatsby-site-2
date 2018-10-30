@@ -4889,6 +4889,12 @@ gatsby-plugin-sharp@^2.0.8:
     sharp "^0.21.0"
     svgo "^0.7.2"
 
+gatsby-plugin-twitter@^2.0.7:
+  version "2.0.7"
+  resolved "https://registry.npmjs.org/gatsby-plugin-twitter/-/gatsby-plugin-twitter-2.0.7.tgz#273eba3b717dd41ba26c7e982c96155776295183"
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+
 gatsby-react-router-scroll@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/gatsby-react-router-scroll/-/gatsby-react-router-scroll-2.0.0.tgz#fb96e9d0b4454ad819b430388539bc1762f04442"
