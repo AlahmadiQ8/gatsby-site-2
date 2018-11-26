@@ -38,7 +38,7 @@ const NavBar = () => (
         <NavLink to="projects">Projects</NavLink>
       </Box>
       <Box ml={[0, 5]} flex="0 1 auto">
-        <NavLinkExt to="https://docs.google.com/document/d/1t3uo04DO-ONXoMgyKj4KY1oqbCr7pT8sItwI-phhGro/edit?usp=sharing">
+        <NavLinkExt to="https://docs.google.com/document/d/1NAE5MnPNrRv4c0WQlr47kv99ddYumVxQWyb7EdjkoXU/edit?usp=sharing">
           Resume
         </NavLinkExt>
       </Box>
