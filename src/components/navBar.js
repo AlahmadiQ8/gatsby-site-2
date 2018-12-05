@@ -42,6 +42,9 @@ const NavBar = () => (
           Resume
         </NavLinkExt>
       </Box>
+      <Box ml={[0, 5]} mb={[3, 0]} flex="0 1 auto">
+        <NavLink to="wiki">Wiki</NavLink>
+      </Box>
     </Flex>
   </Flex>
 )

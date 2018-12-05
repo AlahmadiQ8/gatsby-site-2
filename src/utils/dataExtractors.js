@@ -1,6 +1,6 @@
 import get from 'just-safe-get'
 
-export const getPosts = props => {
+export const getMarkdownPages = props => {
   return get(props, 'data.allMarkdownRemark.edges').map(({ node }) => ({
     id: node.id,
     title: get(node, 'frontmatter.title'),

@@ -1,17 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import format from 'date-fns/format'
 import { HeaderLink } from './links'
 import Grid from './grid/Grid'
 import Box from './grid/Box'
-import Flex from './grid/Flex'
-import { Calendar, Clock } from './icons'
 import PostMeta from './postMeta'
 
 const H1 = Box.withComponent('h1')
 const H2 = Box.withComponent('h2')
 
-const PostsSection = ({ posts, containerStyles }) => (
+const PostsSection = ({ posts, containerStyles, title = 'Posts' }) => (
   <Grid
     px={[3, 4, 5, 6]}
     py={[4, 4, 5, 6]}
@@ -32,14 +29,14 @@ const PostsSection = ({ posts, containerStyles }) => (
       borderColor="primaryVariant"
       borderBottom="2px solid"
     >
-      Posts
+      {title}
     </H1>
     {posts.map(post => (
       <Grid
         key={post.id}
         gridTemplateColumns="1fr"
         gridTemplateRows="1fr 1fr"
-        gridRowGap="20px"
+        gridRowGap="10px"
       >
         <H2 fontSize={[3, null, 4, 5]} my="0">
           <HeaderLink to={post.slug}>{post.title}</HeaderLink>

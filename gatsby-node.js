@@ -1,5 +1,6 @@
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
+const PagesLinkExtractor = require('./gatsby/pagesLinkExractor')
 
 const BLOG_POST_FILENAME_REGEX = /([0-9]+)\-([0-9]+)\-([0-9]+)\-(.+)/
 
@@ -50,32 +51,35 @@ exports.createPages = async ({ graphql, actions }) => {
     return node.fixed.originalName
   })
 
-  const posts = allMarkdown.data.allMarkdownRemark.edges
-  posts.forEach((edge, index) => {
-    const { slug } = edge.node.fields
-    const previous =
-      index === posts.length - 1 ||
-      !posts[index + 1].node.fields.slug.includes('posts')
-        ? null
-        : posts[index + 1].node
-    const next =
-      index === 0 || !posts[index - 1].node.fields.slug.includes('posts')
-        ? null
-        : posts[index - 1].node
-
-    let template
-    // if (slug.includes('posts/')) {
-    template = blogTemplate // for now, use template for all md docs
-    // }
+  const pagesLinkExtractor = new PagesLinkExtractor(
+    allMarkdown.data.allMarkdownRemark.edges
+  )
+  const blogLinks = pagesLinkExtractor.getPages('posts')
+  blogLinks.forEach(({ slug, next, previous }) => {
     createPage({
       path: slug,
-      component: template,
+      component: blogTemplate,
       context: {
         slug,
         images,
         previous,
         next,
-        type: slug.includes('posts/') ? 'post' : null,
+        type: 'post',
+      },
+    })
+  })
+
+  const wikiLinks = pagesLinkExtractor.getPages('wiki')
+  wikiLinks.forEach(({ slug, next, previous }) => {
+    createPage({
+      path: slug,
+      component: blogTemplate,
+      context: {
+        slug,
+        images,
+        previous,
+        next,
+        type: 'wiki',
       },
     })
   })
@@ -93,7 +97,9 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
   if (node.internal.type === 'MarkdownRemark') {
     const filePath = createFilePath({ node, getNode })
-    if (filePath.includes('blog')) {
+    const folders = ['posts', 'wiki']
+    const folder = folders.find(str => filePath.includes(str))
+    if (folder != null) {
       const match = BLOG_POST_FILENAME_REGEX.exec(filePath)
       const year = match[1]
       const month = match[2]
@@ -102,8 +108,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       if (!year || !month || !day || !filename) {
         throw Error(`blog markdown filename format is incorrect: ${filePath}`)
       }
-      const slug = `/posts/${filename}`
-      const date = new Date(year, month - 1, day)
+      const slug = `/${folder}/${filename}`
+      const date = new Date(Number(year), Number(month) - 1, Number(day))
       createNodeField({
         node,
         name: 'date',

@@ -5,12 +5,13 @@ import { getMarkdownPages } from '../utils/dataExtractors'
 import Layout from '../layout'
 import PostsSection from '../components/postsSection'
 
-const Posts = props => {
+const Wikis = props => {
   const posts = getMarkdownPages(props)
 
   return (
     <Layout pageData={props.data}>
       <PostsSection
+        title="Personal Wiki"
         posts={posts}
         containerStyles={{ py: [3, 4], gridRowGap: ['30px'] }}
       />
@@ -18,16 +19,16 @@ const Posts = props => {
   )
 }
 
-export default Posts
+export default Wikis
 
 export const pageQuery = graphql`
-  query PostsQuery($images: [String]!) {
+  query WikiQuery($images: [String]!) {
     allImageSharp(filter: { fixed: { originalName: { in: $images } } }) {
       ...AllImages
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { fields: { slug: { regex: "/posts/" } } }
+      filter: { fields: { slug: { regex: "/wiki/" } } }
     ) {
       edges {
         node {

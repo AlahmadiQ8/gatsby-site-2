@@ -18,6 +18,14 @@ const styles = css`
     line-height: 1.58;
     color: rgba(0, 0, 0, 0.7);
   }
+  li p {
+    margin: 0;
+  }
+  blockquote {
+    border-left: 0.25em solid #dfe2e5;
+    color: #6a737d;
+    padding: 0 1em;
+  }
   .instagram-media {
     margin: 0 auto 30px !important;
     max-width: 550px !important;

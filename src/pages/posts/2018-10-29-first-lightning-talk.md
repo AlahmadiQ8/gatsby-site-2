@@ -1,5 +1,5 @@
 ---
-title: My First Lightning Talk - Intersection Observer API
+title: First Lightning Talk - Intersection Observer API
 date: 2018-10-29
 ---
 

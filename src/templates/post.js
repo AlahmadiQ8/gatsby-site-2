@@ -14,29 +14,38 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     const { previous, next, type } = this.props.pageContext
-
     return (
       <Layout bg="white" pageData={this.props.data}>
         <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
         <Box
           my="0"
           bg="white"
-          maxWidth={[740]}
+          maxWidth={[1000]}
           mx="auto"
-          px="3"
           pt={[4, 4, null, 4]}
-          pb={[3, 4, null, 5]}
+          textAlign="center"
         >
           {type === 'post' && (
             <PostMeta
               date={post.frontmatter.date}
               timeToRead={post.timeToRead}
               pb={[3, 3, null, 4]}
+              justifyContent="center"
             />
           )}
           <H1 fontSize={[5, 5, null, 6]} mt="0" mb={['30px', '38px']}>
             {post.frontmatter.title}
           </H1>
+        </Box>
+        Î
+        <Box
+          my="0"
+          bg="white"
+          maxWidth={[740]}
+          mx="auto"
+          px="3"
+          pb={[3, 4, null, 5]}
+        >
           {/* <p
               style={{
                 display: 'block',
@@ -49,7 +58,6 @@ class BlogPostTemplate extends React.Component {
             dangerouslySetInnerHTML={{ __html: post.html }}
           />
         </Box>
-
         <ul
           style={{
             display: 'flex',
