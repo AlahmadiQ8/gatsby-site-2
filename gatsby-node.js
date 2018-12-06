@@ -6,6 +6,8 @@ const BLOG_POST_FILENAME_REGEX = /([0-9]+)\-([0-9]+)\-([0-9]+)\-(.+)/
 
 let images
 
+const folders = ['posts', 'wiki']
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
@@ -54,6 +56,22 @@ exports.createPages = async ({ graphql, actions }) => {
   const pagesLinkExtractor = new PagesLinkExtractor(
     allMarkdown.data.allMarkdownRemark.edges
   )
+  const pages = allMarkdown.data.allMarkdownRemark.edges.filter(
+    edge => !folders.some(str => edge.node.fields.slug.includes(str))
+  )
+  pages.forEach(edge => {
+    const slug = edge.node.fields.slug
+    createPage({
+      path: slug,
+      component: blogTemplate,
+      context: {
+        slug,
+        images,
+        type: 'page',
+      },
+    })
+  })
+
   const blogLinks = pagesLinkExtractor.getPages('posts')
   blogLinks.forEach(({ slug, next, previous }) => {
     createPage({
@@ -97,7 +115,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
   if (node.internal.type === 'MarkdownRemark') {
     const filePath = createFilePath({ node, getNode })
-    const folders = ['posts', 'wiki']
     const folder = folders.find(str => filePath.includes(str))
     if (folder != null) {
       const match = BLOG_POST_FILENAME_REGEX.exec(filePath)
