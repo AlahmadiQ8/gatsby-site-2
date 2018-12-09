@@ -37,12 +37,12 @@ const NavBar = () => (
       <Box ml={[0, 5]} mb={[3, 0]} flex="0 1 auto">
         <NavLink to="projects">Projects</NavLink>
       </Box>
-      <Box ml={[0, 5]} flex="0 1 auto">
+      <Box ml={[0, 5]} mb={[3, 0]} flex="0 1 auto">
         <NavLinkExt to="https://docs.google.com/document/d/1NAE5MnPNrRv4c0WQlr47kv99ddYumVxQWyb7EdjkoXU/edit?usp=sharing">
           Resume
         </NavLinkExt>
       </Box>
-      <Box ml={[0, 5]} mb={[3, 0]} flex="0 1 auto">
+      <Box ml={[0, 5]} flex="0 1 auto">
         <NavLink to="wiki">Wiki</NavLink>
       </Box>
     </Flex>
